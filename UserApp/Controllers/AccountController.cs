@@ -57,8 +57,10 @@ namespace UserApp.Controllers
                 Users users = new Users
                 {
                     FirstName = model.FirstName,
+                    LastName = model.LastName,
                     Email = model.Email,
-                    UserName = model.Email
+                    UserName = model.Email,
+                    PhoneNumber = model.PhoneNumber
                 };
                 var result = await userManager.CreateAsync(users, model.Password);
 
@@ -159,6 +161,7 @@ namespace UserApp.Controllers
                 else
                 {
                     ModelState.AddModelError("", "Email not found.");
+                    return View(model);
                 }
             }
             return View(model);

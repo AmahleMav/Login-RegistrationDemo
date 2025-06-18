@@ -12,7 +12,7 @@ using UserApp.Data;
 namespace UserApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250417133755_InitialCreate")]
+    [Migration("20250618192212_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -166,16 +166,9 @@ namespace UserApp.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -210,7 +203,6 @@ namespace UserApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("PhoneNumberConfirmed")
